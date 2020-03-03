@@ -25,6 +25,7 @@ def call() {
                     //       spotbugsPublisher()
                     //   ]
                   ) {
+                      /*
                       when {
                           expression {
                               def jenkinsVersion = sh returnStdout: true, script: 'mvn help:evaluate -Dexpression=jenkins.version'
@@ -36,6 +37,9 @@ def call() {
                               // return JENKINS_VERSION < 2.164
                           }
                       }
+                      */
+                      def jenkinsVersion = sh returnStdout: true, script: 'mvn help:evaluate -Dexpression=jenkins.version'
+                      echo jenkinsVersion
                       echo 'hey, you passed!'
                       //def JENKINS_VERSION = sh returnStdout: true, script: 'mvn help:evaluate -Dexpression=jenkins.version | grep -Eo "^[123456789]*\\..*"'.trim()
                       //echo "jenkins version: ${JENKINS_VERSION}"
