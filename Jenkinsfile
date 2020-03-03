@@ -1,3 +1,3 @@
 @Library('carroll-lib')_
 
-buildThis()
+buildPlugin()
