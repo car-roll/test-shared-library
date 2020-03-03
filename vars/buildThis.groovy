@@ -12,7 +12,8 @@ def call() {
           stage('JDK 11 - Linux') {
               agent {
                 //   label 'docker-dedicated-jdk11 && linux'
-                label 'maven-11'
+                //label 'maven-11'
+                  any
               }
 
               steps {
