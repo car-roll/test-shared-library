@@ -10,11 +10,11 @@ def call() {
 
       stages {
           stage('JDK 11 - Linux') {
-              agent {
+              agent any
+              //agent {
                 //   label 'docker-dedicated-jdk11 && linux'
                 //label 'maven-11'
-                  any
-              }
+              //}
 
               steps {
                   withMaven(
