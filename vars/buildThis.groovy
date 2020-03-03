@@ -37,6 +37,8 @@ def call() {
                           }
                       }
                       echo 'hey, you passed!'
+                      def JENKINS_VERSION = sh returnStdout: true, script: 'mvn help:evaluate -Dexpression=jenkins.version | grep -Eo "^[123456789]*\\..*"'.trim()
+                      echo "jenkins version: ${JENKINS_VERSION}"
                     //   sh """
                     //       mvn --show-version --batch-mode --no-transfer-progress --errors \
                     //           -Dconcurrency=1 -Dmaven.test.failure.ignore=true -Dfindbugs.failOnError=false -Djava.level=8\
