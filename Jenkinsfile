@@ -1,6 +1,3 @@
-libraries {
-  lib('carroll-lib')
-}
+@Library('carroll-lib')_
 
 buildThis()
-
