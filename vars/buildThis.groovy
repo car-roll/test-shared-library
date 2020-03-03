@@ -17,15 +17,15 @@ def call() {
               //}
 
               steps {
-                  withMaven(
-                      maven: 'maven'//,
+                 // withMaven(
+                    //  maven: 'maven'//,
                     //   globalMavenSettingsConfig: 'nexus_plus_incrementals',
                     //   publisherStrategy: 'EXPLICIT',
                     //   options: [
                     //       junitPublisher(healthScaleFactor: 1.0),
                     //       spotbugsPublisher()
                     //   ]
-                  ) {
+                  //) {
                       /*
                       when {
                           expression {
