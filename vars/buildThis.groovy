@@ -27,7 +27,7 @@ def call() {
                   ) {
                       when {
                           expression {
-                              def JENKINS_VERSION = sh returnStdout: true, script: 'mvn help:evaluate -Dexpression=jenkins.version | grep -Eo "^[123456789]*\\..*"'.trim()
+                              JENKINS_VERSION = sh returnStdout: true, script: 'mvn help:evaluate -Dexpression=jenkins.version | grep -Eo "^[123456789]*\\..*"'.trim()
                               if (JENKINS_VERSION < 2.164) {
                                   error("Current Jenkins version is ${JENKINS_VERSION}. Minimum Jenkins version required for JDK 11 is 2.164.3-cb-2")
                               } else {
