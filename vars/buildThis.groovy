@@ -10,7 +10,9 @@ def call() {
 
       stages {
           stage('testing') {
-              agent any
+              agent {
+                  label 'linux'
+              }
               steps {
                       script {
                           
