@@ -15,7 +15,7 @@ def call() {
                       script {
                           
                       jenkinsVersion = sh returnStdout: true, script: 'mvn help:evaluate -Dexpression=jenkins.version'
-                      echo "${jenkinsVersion}"
+                      echo "jenkins version is: ${jenkinsVersion}"
                       }
 
               }
