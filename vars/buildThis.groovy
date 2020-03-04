@@ -14,7 +14,7 @@ def call() {
               steps {
                       script {
                           
-                      jenkinsVersion = sh returnStdout: true, script: 'mvn help:evaluate -Dexpression=jenkins.version'
+                      jenkinsVersion = sh returnStdout: true, script: 'mvn help:evaluate -Dexpression=jenkins.version -q -DforceStdout'
                       echo "jenkins version is: ${jenkinsVersion}"
                       echo "donezo"
                       }
