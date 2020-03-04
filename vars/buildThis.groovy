@@ -11,7 +11,7 @@ def call() {
       stages {
           stage('testing') {
               agent {
-                  label 'linux'
+                  label 'docker'
               }
               steps {
                       script {
