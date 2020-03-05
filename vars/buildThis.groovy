@@ -1,7 +1,8 @@
 #!/usr/bin/env groovy
 def call() {
-    def minMajor = 2
-    def minMinor = 164
+    //def minMajor = 2
+    //def minMinor = 164
+    def minVersion = [2, 164, 3]
     pipeline {
         agent none
         options {
@@ -26,8 +27,8 @@ def call() {
                           }
                       }
                       */
-                      if (!enforceJenkinsVersion(jenkinsVersion)) {
-                          error ("Minimum jenkins version required for JDK11 is: ??. Current plugin jenkins version is: ${jenkinsVersion}")
+                      if (!enforceJenkinsVersion(jenkinsVersion, minVersion)) {
+                          error ("Minimum jenkins version required for JDK11 is: ${minVersion[0]}.${minVersion[1]}.${minVersion[2]}. Current plugin jenkins version is: ${jenkinsVersion}")
                       }
                       //error ("Minimum jenkins version required for JDK11 is: ${minMajor}.${minMinor}. Current plugin jenkins version is: ${jenkinsVersion}")
                   }
