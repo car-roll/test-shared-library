@@ -9,7 +9,7 @@ def call() {
     echo "jenkins version is: ${jenkinsVersion}"
     versionSegments = jenkinsVersion.tokenize('.')
     if (versionSegments.size() > 2) {
-        rev = versionSegments[2].tokenize('-').toInteger()
+        rev = versionSegments[2].tokenize('-')[0].toInteger()
         if (versionSegments[0].toInteger() >= minMajor) {
             if (versionSegments[1].toInteger() >= minMinor) {
                 if (rev >= minRev) {
