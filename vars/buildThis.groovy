@@ -1,5 +1,6 @@
 #!/usr/bin/env groovy
-
+def minMajor = 2
+def minMinor = 164
 def call() {
     pipeline {
         agent none
@@ -16,10 +17,14 @@ def call() {
                       jenkinsVersion = sh returnStdout: true, script: 'mvn help:evaluate -Dexpression=jenkins.version -q -DforceStdout'
                       echo "jenkins version is: ${jenkinsVersion}"
                       versionSegments = jenkinsVersion.tokenize('.')
-                      versionSegments.each {
-                          println "$it"
+                      if (versionSegments.size > 2) {
+                          if (versionSegments[0] >= minMajor) {
+                              if (versionSegments[1] >= minMinor) {
+                                  return true;
+                              }
+                          }
                       }
-                      echo "donezo"
+                      error ("Minimum jenkins version required for JDK11 is: ${minMajor}.${minMinor}. Current plugin jenkins version is: ${jenkinsVersion}")
                   }
               }
           }
