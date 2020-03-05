@@ -1,11 +1,6 @@
 #!/usr/bin/env groovy
 
 def call(String jenkinsVersion, List<Integer> minVersion) {
-    //def minMajor = 2
-    //def minMinor = 164
-    //def minRev = 3
-    // jenkinsVersion = sh returnStdout: true, script: 'mvn help:evaluate -Dexpression=jenkins.version -q -DforceStdout'
-    // echo "jenkins version is: ${jenkinsVersion}"
     echo "jv: ${jenkinsVersion}"
     echo "mv: ${minVersion}"
     versionSegments = jenkinsVersion.tokenize('.')
