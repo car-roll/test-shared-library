@@ -15,5 +15,6 @@ def call() {
             }
         }
     }
+    echo "Plugin Jenkins version insufficient to run Java 11. Forcing version ${minVersionString}"
     return minVersionString
 }
