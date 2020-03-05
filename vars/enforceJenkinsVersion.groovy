@@ -1,7 +1,6 @@
 #!/usr/bin/env groovy
 
 def call() {
-    echo "calling enforcer!"
     def minMajor = 2
     def minMinor = 164
     def minRev = 3
