@@ -14,6 +14,7 @@ def call() {
               agent any
               steps {
                   script {
+                      /*
                       jenkinsVersion = sh returnStdout: true, script: 'mvn help:evaluate -Dexpression=jenkins.version -q -DforceStdout'
                       echo "jenkins version is: ${jenkinsVersion}"
                       versionSegments = jenkinsVersion.tokenize('.')
@@ -24,7 +25,11 @@ def call() {
                               }
                           }
                       }
-                      error ("Minimum jenkins version required for JDK11 is: ${minMajor}.${minMinor}. Current plugin jenkins version is: ${jenkinsVersion}")
+                      */
+                      if (!enforceJenkinsVersion()) {
+                          error ("Minimum jenkins version required for JDK11 is: ${minMajor}.${minMinor}. Current plugin jenkins version is: ${jenkinsVersion}")
+                      }
+                      //error ("Minimum jenkins version required for JDK11 is: ${minMajor}.${minMinor}. Current plugin jenkins version is: ${jenkinsVersion}")
                   }
               }
           }
