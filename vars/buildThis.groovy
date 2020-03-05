@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
-def minMajor = 2
-def minMinor = 164
 def call() {
+    def minMajor = 2
+    def minMinor = 164
     pipeline {
         agent none
         options {
